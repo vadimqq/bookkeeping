@@ -12,7 +12,7 @@
           <input id="password" type="password" v-model.trim="password" :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"/>
           <label for="password">Пароль</label>
           <small class="helper-text invalid" v-if="$v.password.$dirty && !$v.password.required">Введите Пароль</small>
-                    <small class="helper-text invalid" v-else-if="$v.password.$dirty && !$v.password.minLength">Пароль дожен содержать минимум {{$v.password.$params.minLength.min}} символов. Ваш пароль {{password.length}}</small>
+          <small class="helper-text invalid" v-else-if="$v.password.$dirty && !$v.password.minLength">Пароль дожен содержать минимум {{$v.password.$params.minLength.min}} символов. Ваш пароль {{password.length}}</small>
         </div>
       </div>
       <div class="card-action">
@@ -29,6 +29,7 @@
 
 <script>
 import { email, required, minLength } from 'vuelidate/lib/validators'
+import messages from '@/utils/messages'
 
 export default {
   name: 'Login',
@@ -46,9 +47,13 @@ export default {
       minLength: minLength(6)
     }
   },
+  mounted () {
+    if (messages[this.$route.query.message]) {
+      this.$message(messages[this.$route.query.message])
+    }
+  },
   methods: {
-    onSubmit () {
-      console.log(this.$v.password)
+    async onSubmit () {
       if (this.$v.$invalid) {
         this.$v.$touch()
         return
@@ -57,8 +62,10 @@ export default {
         email: this.email,
         password: this.password
       }
-      console.log(formData)
-      this.$router.push('/')
+      try {
+        await this.$store.dispatch('login', formData)
+        this.$router.push('/')
+      } catch (e) {}
     }
   }
 }
