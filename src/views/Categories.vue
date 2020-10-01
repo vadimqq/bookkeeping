@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <d iv>
     <div class="page-title">
       <h3>Категории</h3>
     </div>
@@ -7,10 +7,11 @@
       <Preloader v-if="loading"/>
       <div class="row" v-else>
         <CreateCategory @created="addNewCategory"/>
-        <EditCategory :categories="categories" @updated="updateCategory" :key="categories.length + updateCount"/>
+        <EditCategory v-if="categories.length" :categories="categories" @updated="updateCategory" :key="categories.length + updateCount"/>
+        <p class="center">Добавть первую категорию ¯\_(ツ)_/¯</p>
       </div>
     </section>
-  </div>
+  </d>
 </template>
 
 <script>
