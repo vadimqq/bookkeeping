@@ -23,7 +23,7 @@
 import { required, minValue } from 'vuelidate/lib/validators'
 
 export default {
-  name: 'CreatePost',
+  name: 'CreateCategory',
   data: () => ({
     title: '',
     limit: 100
@@ -36,10 +36,21 @@ export default {
     window.M.updateTextFields()
   },
   methods: {
-    onSubmit () {
+    async onSubmit () {
       if (this.$v.$invalid) {
         this.$v.$touch()
       }
+      try {
+        const category = await this.$store.dispatch('createCategory', {
+          title: this.title,
+          limit: this.limit
+        })
+        this.title = ''
+        this.limit = 100
+        this.$v.$reset()
+        this.$message('категория была создана')
+        this.$emit('created', category)
+      } catch (e) {}
     }
   }
 }
