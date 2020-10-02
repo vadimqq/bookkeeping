@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import Sidebar from '@/components/ui-kit/Sidebar.vue'
-import Navbar from '@/components/ui-kit/Navbar.vue'
+import Sidebar from '@/components/main/Sidebar.vue'
+import Navbar from '@/components/main/Navbar.vue'
 import messages from '@/utils/messages'
 
 export default {

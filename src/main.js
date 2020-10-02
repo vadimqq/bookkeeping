@@ -7,7 +7,7 @@ import dateFilter from './filters/date.filter'
 import currencyFilter from './filters/currency.filter'
 import messagePlugin from './utils/message.plugin'
 import TooltipDirective from './directives/tooltip.directive'
-import Preloader from './components/ui-kit/Preloader'
+import Preloader from './components/main/Preloader'
 import './registerServiceWorker'
 import 'materialize-css/dist/js/materialize.min'
 

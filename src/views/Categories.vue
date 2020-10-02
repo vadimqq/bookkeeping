@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import CreateCategory from '@/components/CreateCategory'
-import EditCategory from '@/components/EditCategory'
+import CreateCategory from '@/components/categories/CreateCategory'
+import EditCategory from '@/components/categories/EditCategory'
 
 export default {
   name: 'Categories',
