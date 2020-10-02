@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'table',
+  name: 'HistoryTable',
   props: {
     records: {
       required: true,
