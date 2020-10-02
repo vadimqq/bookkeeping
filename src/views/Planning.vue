@@ -35,7 +35,6 @@ export default {
   async mounted () {
     const records = await this.$store.dispatch('fetchRecord')
     const categories = await this.$store.dispatch('fetchCategories')
-    console.log(records)
     this.categories = categories.map(category => {
       const spend = records
         .filter(record => record.categoryId === category.id)
