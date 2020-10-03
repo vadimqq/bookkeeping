@@ -44,7 +44,7 @@ export default {
         }, 0)
       const percent = 100 * spend / category.limit
       const progressPercent = percent > 100 ? 100 : percent
-      const progressColor = percent < 60 ? 'green' : percent < 100 ? 'ellow' : 'red'
+      const progressColor = percent < 60 ? 'green' : percent < 100 ? 'yellow' : 'red'
       const tooltipValue = category.limit - spend
       const tooltip = `${tooltipValue < 0 ? 'превышение на' : 'осталось'} ${currencyFilter(Math.abs(tooltipValue))}`
       return {
