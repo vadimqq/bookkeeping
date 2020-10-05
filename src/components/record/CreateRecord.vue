@@ -6,18 +6,6 @@
       </select>
       <label>Выберите категорию</label>
     </div>
-    <p>
-      <label>
-        <input class="with-gap" name="type" type="radio" value="income" v-model="type"/>
-        <span>Доход</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input class="with-gap" name="type" type="radio" value="outcome" v-model="type"/>
-        <span>Расход</span>
-      </label>
-    </p>
     <div class="input-field">
       <input id="amount" type="number" v-model.number="amount" :class="{invalid: $v.amount.$dirty && !$v.amount.minValue}"/>
       <label for="amount">Сумма</label>
@@ -41,7 +29,6 @@ export default {
   data: () => ({
     select: null,
     category: null,
-    type: 'outcome',
     amount: 1,
     description: ''
   }),
@@ -49,6 +36,10 @@ export default {
     categories: {
       type: Array,
       required: true
+    },
+    type: {
+      type: String,
+      default: ''
     }
   },
   validations: {
