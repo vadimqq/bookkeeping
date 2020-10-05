@@ -13,12 +13,34 @@ export default {
     }
   },
   actions: {
+    async updateInfo ({ dispatch, commit, getters }, toUpdate) {
+      try {
+        const uid = await dispatch('getUid')
+        const updateData = { ...getters.info, ...toUpdate }
+        await firebase.database().ref(`users/${uid}/info`).update(updateData)
+        commit('setInfo', updateData)
+      } catch (e) {
+        commit('setError')
+        throw e
+      }
+    },
     async fetchInfo ({ dispatch, commit }) {
       try {
         const uid = await dispatch('getUid')
         const info = (await firebase.database().ref(`/users/${uid}/info`).once('value')).val()
         commit('setInfo', info)
       } catch (e) {
+        commit('setError')
+        throw e
+      }
+    },
+    async updateName ({ dispatch, commit }, { name }) {
+      try {
+        const uid = await dispatch('getUid')
+        await firebase.database().ref(`users/${uid}/info`).update({ name })
+      } catch (e) {
+        commit('setError', e)
+        throw e
       }
     }
   },

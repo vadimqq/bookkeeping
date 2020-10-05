@@ -1,5 +1,5 @@
 <template>
-  <d iv>
+  <div>
     <div class="page-title">
       <h3>Категории</h3>
     </div>
@@ -8,15 +8,15 @@
       <div class="row" v-else>
         <CreateCategory @created="addNewCategory"/>
         <EditCategory v-if="categories.length" :categories="categories" @updated="updateCategory" :key="categories.length + updateCount"/>
-        <p class="center">Добавть первую категорию ¯\_(ツ)_/¯</p>
+        <p class="center" v-else>Добавть первую категорию ¯\_(ツ)_/¯</p>
       </div>
     </section>
-  </d>
+  </div>
 </template>
 
 <script>
-import CreateCategory from '@/components/CreateCategory'
-import EditCategory from '@/components/EditCategory'
+import CreateCategory from '@/components/categories/CreateCategory'
+import EditCategory from '@/components/categories/EditCategory'
 
 export default {
   name: 'Categories',
@@ -32,7 +32,6 @@ export default {
   async mounted () {
     this.categories = await this.$store.dispatch('fetchCategories')
     this.loading = false
-    console.log(this.categories)
   },
   methods: {
     addNewCategory (category) {

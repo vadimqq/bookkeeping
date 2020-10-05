@@ -56,7 +56,7 @@ export default {
     this.limit = limit
   },
   mounted () {
-    window.M.FormSelect.init(this.$refs.select)
+    this.select = window.M.FormSelect.init(this.$refs.select)
     window.M.updateTextFields()
   },
   destroyed () {
