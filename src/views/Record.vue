@@ -5,7 +5,16 @@
     </div>
     <Preloader v-if="loading"/>
     <p class="center" v-else-if="!categories.length">Записей пока что нет.<router-link to="/сategories">Добавьте новую категорию</router-link></p>
-    <CreateRecord :categories="categories" v-else/>
+    <div class="row" v-else>
+      <div class="col s6">
+        <h4>Расход</h4>
+        <CreateRecord :categories="categoriesOutcome" type="outcome"/>
+      </div>
+      <div class="col s6">
+        <h4>Доход</h4>
+        <CreateRecord :categories="categoriesIncome" type="income"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,6 +32,8 @@ export default {
   }),
   async mounted () {
     this.categories = await this.$store.dispatch('fetchCategories')
+    this.categoriesOutcome = this.categories.filter(category => category.type === 'outcome')
+    this.categoriesIncome = this.categories.filter(category => category.type === 'income')
     this.loading = false
   }
 }
