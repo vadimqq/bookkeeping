@@ -40,7 +40,6 @@ export default {
   name: 'CreateRecord',
   data: () => ({
     select: null,
-    categories: [],
     category: null,
     type: 'outcome',
     amount: 1,

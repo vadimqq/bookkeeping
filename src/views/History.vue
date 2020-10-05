@@ -42,6 +42,7 @@ export default {
   async mounted () {
     this.records = await this.$store.dispatch('fetchRecord')
     this.categories = await this.$store.dispatch('fetchCategories')
+    this.records = this.records.reverse()
     this.setup()
     this.loading = false
   },
