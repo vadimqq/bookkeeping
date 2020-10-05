@@ -86,15 +86,6 @@ const router = new VueRouter({
         auth: true
       },
       component: () => import('../views/Record.vue')
-    },
-    {
-      path: '/job',
-      name: 'job',
-      meta: {
-        layout: 'main',
-        auth: true
-      },
-      component: () => import('../views/Job.vue')
     }
   ]
 })
