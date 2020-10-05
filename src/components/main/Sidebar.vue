@@ -31,8 +31,12 @@ export default {
         href: '/record'
       },
       {
-        title: 'Категории',
+        title: 'Категории затрат',
         href: '/categories'
+      },
+      {
+        title: 'Заработок',
+        href: '/job'
       }
     ]
   })
