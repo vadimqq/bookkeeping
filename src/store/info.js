@@ -33,6 +33,15 @@ export default {
         commit('setError')
         throw e
       }
+    },
+    async updateName ({ dispatch, commit }, { name }) {
+      try {
+        const uid = await dispatch('getUid')
+        await firebase.database().ref(`users/${uid}/info`).update({ name })
+      } catch (e) {
+        commit('setError', e)
+        throw e
+      }
     }
   },
   getters: {
