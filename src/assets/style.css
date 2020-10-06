@@ -41,7 +41,7 @@
 }
 .app-sidenav.open{
   -webkit-transform:translateX(0);
-  transform:translateX(0)
+  transform:translateX(0);
 }
 .navbar{
   position:absolute;
@@ -50,12 +50,17 @@
   width:100%;
   height:64px!important;
   padding:0 2rem;
-  z-index:1000
+  z-index:1000;
 }
 .nav-wrapper{
   -webkit-justify-content:space-between;
   -ms-flex-pack:justify;
-  justify-content:space-between
+  justify-content:space-between;
+}
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .nav-wrapper,.navbar-left{
   display:-webkit-flex;
@@ -63,7 +68,7 @@
   display:flex;
   -webkit-align-items:center;
   -ms-flex-align:center;
-  align-items:center
+  align-items:center;
 }
 .navbar-left>a{
   margin-right:1rem
@@ -156,6 +161,9 @@
   .link--visible {
     display: none;
   }
+  .bill {
+    
+  }
   @media (max-width: 768px) {
     .app-sidenav {
       width: 100%;
@@ -170,5 +178,8 @@
   @media (max-width: 600px) {
     .link--visible {
       display: block;
+    }
+    .date {
+      display: none;
     }
   }

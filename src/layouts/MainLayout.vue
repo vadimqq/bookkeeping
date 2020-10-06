@@ -2,8 +2,8 @@
   <div>
     <Preloader v-if="loading"/>
     <div class="app-main-layout" v-else>
-      <v-sidebar v-model="isOpen"/>
-      <v-navbar @click="isOpen= !isOpen"/>
+      <Sidebar :isOpen="isOpen" @click="isOpen = !isOpen"/>
+      <Navbar @click="isOpen= !isOpen" />
       <main class="app-content" :class="{full: !isOpen}">
         <div class="app-page">
           <router-view/>
@@ -30,8 +30,8 @@ export default {
     loading: true
   }),
   components: {
-    'v-sidebar': Sidebar,
-    'v-navbar': Navbar
+    Sidebar,
+    Navbar
   },
   async mounted () {
     if (!Object.keys(this.$store.getters.info).length) {
