@@ -149,7 +149,13 @@
   .mr30 {
     margin-bottom: 30px;
   }
-  .history-chart{max-width:600px;margin:0 auto}
+  .history-chart{]
+    max-width:600px;
+    margin:0 auto
+  }
+  .link--visible {
+    display: none;
+  }
   @media (max-width: 768px) {
     .app-sidenav {
       width: 100%;
@@ -159,5 +165,10 @@
     }
     .th--mobile, .td--mobile{
       display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .link--visible {
+      display: block;
     }
   }
