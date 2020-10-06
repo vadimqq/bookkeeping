@@ -57,8 +57,9 @@ export default {
           typeText: record.type === 'income' ? 'доход' : 'расход'
         }
       }))
+      this.categories = this.categories.filter(item => item.type === 'outcome')
       this.renderChart({
-        labels: this.categories.filter(item => item.type === 'outcome').map(item => item.title),
+        labels: this.categories.map(item => item.title),
         datasets: [{
           label: 'Расходы по категориям',
           data: this.categories.map(item => {
