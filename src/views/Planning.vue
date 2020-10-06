@@ -2,7 +2,6 @@
   <div>
     <div class="page-title">
       <h3>Планирование</h3>
-      <h4>{{info.bill | currency('RUB')}}</h4>
     </div>
     <Preloader v-if="loading"/>
       <p class="center" v-else-if="!categoriesIncome.length && !categoriesOutcome.length">Категорий пока что нет.<router-link to="/categories"> Добавьте новую категорию</router-link></p>
@@ -31,7 +30,6 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
 import currencyFilter from '@/filters/currency.filter'
 
 export default {
@@ -41,9 +39,6 @@ export default {
     categoriesOutcome: [],
     categoriesIncome: []
   }),
-  computed: {
-    ...mapGetters(['info'])
-  },
   async mounted () {
     const records = await this.$store.dispatch('fetchRecord')
     const categories = await this.$store.dispatch('fetchCategories')

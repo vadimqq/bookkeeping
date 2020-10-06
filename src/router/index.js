@@ -25,15 +25,6 @@ const router = new VueRouter({
       component: () => import('../views/Register.vue')
     },
     {
-      path: '/',
-      name: 'Home',
-      meta: {
-        layout: 'main',
-        auth: true
-      },
-      component: () => import('../views/Home.vue')
-    },
-    {
       path: '/categories',
       name: 'categories',
       meta: {
@@ -52,7 +43,7 @@ const router = new VueRouter({
       component: () => import('../views/DetailRecord.vue')
     },
     {
-      path: '/history',
+      path: '/',
       name: 'history',
       meta: {
         layout: 'main',

@@ -14,13 +14,8 @@ export default {
   data: () => ({
     links: [
       {
-        title: 'счет',
-        href: '/',
-        exact: true
-      },
-      {
         title: 'История',
-        href: '/history'
+        href: '/'
       },
       {
         title: 'Планирование',
