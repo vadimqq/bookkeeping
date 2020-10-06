@@ -6,7 +6,7 @@
     <section>
       <Preloader v-if="loading"/>
       <div class="row" v-else>
-        <CreateCategory @created="addNewCategory"/>
+        <CreateCategory @created="addNewCategory" class="mr30"/>
         <EditCategory v-if="categories.length" :categories="categories" @updated="updateCategory" :key="categories.length + updateCount"/>
         <p class="center" v-else>Добавть первую категорию ¯\_(ツ)_/¯</p>
       </div>

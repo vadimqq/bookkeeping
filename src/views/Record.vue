@@ -6,11 +6,11 @@
     <Preloader v-if="loading"/>
     <p class="center" v-else-if="!categories.length">Записей пока что нет.<router-link to="/сategories">Добавьте новую категорию</router-link></p>
     <div class="row" v-else>
-      <div class="col s6">
+      <div class="col s12 m6 mr30">
         <h4>Расход</h4>
         <CreateRecord :categories="categoriesOutcome" type="outcome"/>
       </div>
-      <div class="col s6">
+      <div class="col s12 m6">
         <h4>Доход</h4>
         <CreateRecord :categories="categoriesIncome" type="income"/>
       </div>
