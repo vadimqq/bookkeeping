@@ -3,7 +3,7 @@
     <div class="page-title">
       <h3>История записей</h3>
     </div>
-    <div class="history-chart">
+    <div class="history-chart col s12">
       <canvas ref="canvas"></canvas>
     </div>
     <Preloader v-if="loading"/>
@@ -37,7 +37,8 @@ export default {
   data: () => ({
     loading: true,
     records: [],
-    categories: []
+    categories: [],
+    type: ''
   }),
   async mounted () {
     this.records = await this.$store.dispatch('fetchRecord')
@@ -57,7 +58,7 @@ export default {
         }
       }))
       this.renderChart({
-        labels: this.categories.map(item => item.title),
+        labels: this.categories.filter(item => item.type === 'outcome').map(item => item.title),
         datasets: [{
           label: 'Расходы по категориям',
           data: this.categories.map(item => {
