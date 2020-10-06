@@ -1,6 +1,6 @@
 <template>
   <ul class="sidenav app-sidenav" :class="{open: value}">
-    <router-link tag="li" active-class="active" :to="link.href" :exact="link.exact" v-for="link in links" :key="link.url">
+    <router-link tag="li" active-class="active" :to="link.href" :exact="link.exact" v-for="link in links" :key="link.url" :class="link.class">
       <a href="#" class="waves-effect waves-orange pointer">{{link.title}}</a>
     </router-link>
   </ul>
@@ -33,6 +33,11 @@ export default {
       {
         title: 'Категории',
         href: '/categories'
+      },
+      {
+        title: 'Профиль',
+        href: '/profile',
+        class: 'link--visible'
       }
     ]
   })
