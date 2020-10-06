@@ -2,8 +2,8 @@
   <div>
     <Preloader v-if="loading"/>
     <div class="app-main-layout" v-else>
-      <Sidebar v-model="isOpen"/>
-      <Navbar @click="isOpen= !isOpen"/>
+      <Sidebar :isOpen="isOpen" @click="isOpen = !isOpen"/>
+      <Navbar @click="isOpen= !isOpen" />
       <main class="app-content" :class="{full: !isOpen}">
         <div class="app-page">
           <router-view/>
